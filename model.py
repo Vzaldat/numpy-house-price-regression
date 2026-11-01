@@ -241,7 +241,7 @@ def house_price_pipeline(X, y, ratio_num_idx, ratio_den_idx, cat_labels=None, tr
     # TODO: Run full clean->featurize->split->standardize->OLS->evaluate pipeline...
     
     # Full clean    
-    X = prepare_cleaned_features(X, iqr_k=1.5)
+    X = prepare_cleaned_features(X, iqr_k=iqr_k)
 
     # Featurize 
     X = assemble_feature_matrix(X, ratio_num_idx, ratio_den_idx, cat_labels)
