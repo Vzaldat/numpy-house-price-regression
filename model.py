@@ -132,7 +132,7 @@ def root_mean_squared_error(y_true, y_pred):
         float: RMSE value.
     """
     # TODO: return the root mean squared error as a Python float
-    residual = (y_pred - y_true) ** 2
+    residual = (y_true - y_pred) ** 2
     return np.sqrt(np.mean(residual))
 
 # Step 17 - r_squared
