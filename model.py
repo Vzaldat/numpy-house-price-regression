@@ -167,8 +167,21 @@ def prepare_cleaned_features(X, iqr_k=1.5):
     lower, upper = compute_iqr_bounds(no_nans_X, iqr_k)
     return clip_columns(no_nans_X, lower, upper)
 
-# Step 20 - assemble_feature_matrix (not yet solved)
-# TODO: implement
+# Step 20 - assemble_feature_matrix
+import numpy as np
+def assemble_feature_matrix(X_num, ratio_num_idx, ratio_den_idx, cat_labels=None):
+    # TODO: build an extended feature matrix by appending a derived ratio...
+    X_num = np.array(X_num)
+    num, denom = X_num[:, ratio_num_idx], X_num[:, ratio_den_idx]
+
+    ratio = make_ratio_feature(num, denom)
+    X_ext = append_column(X_num, ratio)
+
+    if cat_labels is not None:
+        cat_block = one_hot_encode(cat_labels)
+        X_ext = np.hstack([X_ext, cat_block])
+    
+    return X_ext
 
 # Step 21 - make_train_val_test (not yet solved)
 # TODO: implement
