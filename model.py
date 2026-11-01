@@ -45,11 +45,18 @@ def make_ratio_feature(numerator, denominator, eps=1e-8):
     # TODO: Form a derived ratio feature from two 1-D arrays with safe division.
     return numerator / (denominator + eps)
 
-# Step 5 - append_column (not yet solved)
-# TODO: implement
+# Step 5 - append_column
+def append_column(X, col):
+    # TODO: Horizontally append one 1-D feature column onto a design matrix.
+   return np.column_stack([X, col])
 
-# Step 6 - one_hot_encode (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode
+def one_hot_encode(labels):
+    # TODO: Convert a 1-D array of categorical labels into a dense binary one-hot matrix.
+    labels = np.array(labels)
+    uniques = np.unique(labels)
+    N, C = len(labels), len(uniques)
+    return (labels[:, None] == uniques[None, :]).astype(float)
 
 # Step 7 - fit_standardizer (not yet solved)
 # TODO: implement
