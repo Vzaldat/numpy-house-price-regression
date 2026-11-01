@@ -138,7 +138,7 @@ def root_mean_squared_error(y_true, y_pred):
 # Step 17 - r_squared
 def r_squared(y_true, y_pred):
     # TODO: Compute R^2 = 1 - SS_res/SS_tot (return 0.0 if SS_tot is 0)...
-    residual = (y_pred - y_true) ** 2
+    residual = (y_true - y_pred) ** 2
     ss_res = np.mean(residual)
     ss_tot = np.mean((y_true - np.mean(y_true)) ** 2)
     return 1 - ss_res/ss_tot if ss_tot != 0 else 0
